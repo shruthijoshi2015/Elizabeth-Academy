@@ -1,74 +1,111 @@
-// English Assessment Question Bank (100+ unique questions generated dynamically)
-const questionBank = [];
+const questionBank = [
+    // --- BASIC VOCABULARY (A1-A2) ---
+    { question: "She needs to _____ some groceries from the supermarket.", options: ["buy", "buying", "bought", "buys"], answer: "buy" },
+    { question: "Can you _____ me the time, please?", options: ["tell", "say", "speak", "talk"], answer: "tell" },
+    { question: "I usually _____ a cup of coffee in the morning.", options: ["drink", "eat", "make", "cook"], answer: "drink" },
+    { question: "He is wearing a blue _____ and black shoes.", options: ["shirt", "car", "book", "apple"], answer: "shirt" },
+    { question: "My favorite _____ is yellow.", options: ["color", "food", "animal", "number"], answer: "color" },
+    { question: "The _____ is shining brightly today.", options: ["sun", "moon", "star", "rain"], answer: "sun" },
+    { question: "Please open the _____ so we can get some fresh air.", options: ["window", "wall", "floor", "table"], answer: "window" },
+    { question: "I use a _____ to cut the paper.", options: ["pair of scissors", "spoon", "fork", "plate"], answer: "pair of scissors" },
+    { question: "He wants to _____ an apple for lunch.", options: ["eat", "drink", "sleep", "run"], answer: "eat" },
+    { question: "They live in a large _____ with a garden.", options: ["house", "car", "train", "bicycle"], answer: "house" },
+    { question: "She works at a hospital; she is a _____.", options: ["nurse", "mechanic", "pilot", "carpenter"], answer: "nurse" },
+    { question: "I read a very interesting _____ yesterday.", options: ["book", "music", "shoe", "chair"], answer: "book" },
+    { question: "We need to _____ the house before the guests arrive.", options: ["clean", "dirty", "break", "lose"], answer: "clean" },
+    { question: "Can I borrow your _____ to write this down?", options: ["pen", "cup", "bag", "sock"], answer: "pen" },
+    { question: "The cat is sleeping on the _____.", options: ["sofa", "ceiling", "sky", "cloud"], answer: "sofa" },
+    { question: "I am going to the _____ to buy some stamps.", options: ["post office", "bakery", "butcher", "pharmacy"], answer: "post office" },
+    { question: "He poured some milk into his _____.", options: ["glass", "plate", "fork", "napkin"], answer: "glass" },
+    { question: "She bought a new _____ of shoes.", options: ["pair", "piece", "slice", "bunch"], answer: "pair" },
+    { question: "The birds are singing in the _____.", options: ["trees", "cars", "houses", "roads"], answer: "trees" },
+    { question: "I need a _____ to dry my hands.", options: ["towel", "book", "comb", "brush"], answer: "towel" },
 
-const subjects = ["I", "You", "He", "She", "They", "We", "The professor", "My best friend", "The software engineer", "A student"];
-const verbSets = [
-    { base: "go", s: "goes", past: "went", pp: "gone" },
-    { base: "see", s: "sees", past: "saw", pp: "seen" },
-    { base: "eat", s: "eats", past: "ate", pp: "eaten" },
-    { base: "write", s: "writes", past: "wrote", pp: "written" },
-    { base: "take", s: "takes", past: "took", pp: "taken" }
+    // --- BASIC GRAMMAR (A1-A2) ---
+    { question: "I _____ 25 years old.", options: ["am", "is", "are", "have"], answer: "am" },
+    { question: "_____ she like playing tennis?", options: ["Does", "Do", "Is", "Are"], answer: "Does" },
+    { question: "They _____ to the cinema last night.", options: ["went", "go", "going", "goes"], answer: "went" },
+    { question: "We _____ English right now.", options: ["are studying", "study", "studied", "studying"], answer: "are studying" },
+    { question: "He _____ a new car tomorrow.", options: ["is going to buy", "buys", "bought", "buying"], answer: "is going to buy" },
+    { question: "I have lived here _____ 2015.", options: ["since", "for", "in", "at"], answer: "since" },
+    { question: "She is the _____ student in the class.", options: ["tallest", "taller", "tall", "most tall"], answer: "tallest" },
+    { question: "My car is faster _____ yours.", options: ["than", "then", "that", "as"], answer: "than" },
+    { question: "_____ are you from?", options: ["Where", "What", "When", "Who"], answer: "Where" },
+    { question: "I don't have _____ money in my wallet.", options: ["any", "some", "many", "few"], answer: "any" },
+    { question: "There is _____ apple on the table.", options: ["an", "a", "some", "any"], answer: "an" },
+    { question: "He put the book _____ the desk.", options: ["on", "in", "at", "over"], answer: "on" },
+    { question: "We _____ dinner when the phone rang.", options: ["were having", "had", "have", "are having"], answer: "were having" },
+    { question: "I have never _____ to Japan.", options: ["been", "went", "go", "going"], answer: "been" },
+    { question: "She _____ play the piano very well.", options: ["can", "must", "should", "might"], answer: "can" },
+    { question: "They didn't _____ the movie.", options: ["like", "likes", "liked", "liking"], answer: "like" },
+    { question: "_____ time does the train leave?", options: ["What", "Which", "How", "When"], answer: "What" },
+    { question: "I usually wake up _____ 7 AM.", options: ["at", "in", "on", "to"], answer: "at" },
+    { question: "He is interested _____ learning Spanish.", options: ["in", "on", "at", "about"], answer: "in" },
+    { question: "This is _____ book.", options: ["my", "mine", "me", "I"], answer: "my" },
+
+    // --- INTERMEDIATE CLAUSES (B1-B2) ---
+    { question: "The man _____ lives next door is a doctor.", options: ["who", "which", "whose", "whom"], answer: "who" },
+    { question: "This is the restaurant _____ we had dinner last week.", options: ["where", "which", "that", "who"], answer: "where" },
+    { question: "I don't know the reason _____ she left early.", options: ["why", "which", "where", "how"], answer: "why" },
+    { question: "The car, _____ was completely destroyed, belonged to my uncle.", options: ["which", "that", "who", "whom"], answer: "which" },
+    { question: "He is the artist _____ paintings are famous worldwide.", options: ["whose", "who", "whom", "which"], answer: "whose" },
+    { question: "If it rains tomorrow, we _____ the picnic.", options: ["will cancel", "cancel", "would cancel", "cancelled"], answer: "will cancel" },
+    { question: "If I _____ rich, I would travel the world.", options: ["were", "am", "will be", "have been"], answer: "were" },
+    { question: "He acts as if he _____ everything.", options: ["knew", "knows", "know", "knowing"], answer: "knew" },
+    { question: "Although it was raining, they _____ for a walk.", options: ["went", "go", "going", "have gone"], answer: "went" },
+    { question: "We stayed inside because of the storm, _____ was a smart decision.", options: ["which", "what", "that", "it"], answer: "which" },
+    { question: "You can go to the party provided that you _____ home by midnight.", options: ["are", "will be", "were", "had been"], answer: "are" },
+    { question: "She didn't pass the exam despite _____ studied hard.", options: ["having", "have", "has", "had"], answer: "having" },
+    { question: "I will call you as soon as I _____.", options: ["arrive", "will arrive", "arrived", "am arriving"], answer: "arrive" },
+    { question: "Whether he _____ or not, I am going.", options: ["comes", "will come", "come", "came"], answer: "comes" },
+    { question: "It is the best movie that I _____ ever seen.", options: ["have", "had", "will have", "am"], answer: "have" },
+    { question: "We need someone _____ can speak fluent Japanese.", options: ["who", "which", "whom", "whose"], answer: "who" },
+    { question: "The reason _____ I'm calling is to schedule a meeting.", options: ["why", "for", "that", "because"], answer: "why" },
+    { question: "If she had known, she _____ you.", options: ["would have told", "will tell", "would tell", "told"], answer: "would have told" },
+    { question: "Not only _____ beautiful, but she is also very smart.", options: ["is she", "she is", "does she", "she does"], answer: "is she" },
+    { question: "I remember the day _____ we first met.", options: ["when", "where", "which", "why"], answer: "when" },
+
+    // --- ADVANCED GRAMMAR (C1) ---
+    { question: "Hardly _____ arrived when the thunderstorm began.", options: ["had we", "we had", "did we", "have we"], answer: "had we" },
+    { question: "It is crucial that the document _____ signed immediately.", options: ["be", "is", "was", "will be"], answer: "be" },
+    { question: "_____, I would have warned him.", options: ["Had I known", "If I knew", "Did I know", "If I have known"], answer: "Had I known" },
+    { question: "Seldom _____ such a remarkable performance.", options: ["have I seen", "I have seen", "saw I", "I saw"], answer: "have I seen" },
+    { question: "The project was delayed owing _____ a lack of funding.", options: ["to", "for", "with", "from"], answer: "to" },
+    { question: "By 2030, scientists _____ a cure.", options: ["will have found", "will find", "are finding", "have found"], answer: "will have found" },
+    { question: "He objected to _____ treated like a child.", options: ["being", "be", "been", "have been"], answer: "being" },
+    { question: "No sooner had he left the building _____ the alarm rang.", options: ["than", "when", "that", "then"], answer: "than" },
+    { question: "I'd rather you _____ smoke in the house.", options: ["didn't", "don't", "wouldn't", "won't"], answer: "didn't" },
+    { question: "She demanded that the money _____ refunded.", options: ["be", "is", "was", "will be"], answer: "be" },
+    { question: "Only after understanding the situation _____ to act.", options: ["did he decide", "he decided", "he did decide", "decides he"], answer: "did he decide" },
+    { question: "It's high time we _____ looking for a new apartment.", options: ["started", "start", "starting", "have started"], answer: "started" },
+    { question: "He is alleged _____ millions from the company.", options: ["to have stolen", "to steal", "stealing", "that he stole"], answer: "to have stolen" },
+    { question: "Not until the rain stopped _____ the game resume.", options: ["did", "was", "does", "had"], answer: "did" },
+    { question: "Supposing you _____ a million dollars, what would you do?", options: ["won", "win", "will win", "had won"], answer: "won" },
+    { question: "They were on the verge _____ signing the contract.", options: ["of", "to", "for", "with"], answer: "of" },
+    { question: "Such _____ the storm that trees lay uprooted.", options: ["was", "is", "has been", "would be"], answer: "was" },
+    { question: "Under no circumstances _____ allowed to leave.", options: ["are you", "you are", "will you", "you will"], answer: "are you" },
+    { question: "The more you study, the _____ you will perform.", options: ["better", "best", "good", "well"], answer: "better" },
+    { question: "He was so tired that he could _____ keep his eyes open.", options: ["barely", "mostly", "hardly", "nearly"], answer: "barely" },
+
+    // --- ADVANCED VOCABULARY & IDIOMS (C1-C2) ---
+    { question: "The committee was completely _____ by the new regulations.", options: ["baffled", "baffling", "baffle", "baffles"], answer: "baffled" },
+    { question: "His argument was entirely _____ and disconnected from reality.", options: ["spurious", "tangible", "pragmatic", "coherent"], answer: "spurious" },
+    { question: "The new tax policy threatens to _____ the economic crisis.", options: ["exacerbate", "alleviate", "mitigate", "amortize"], answer: "exacerbate" },
+    { question: "She has an _____ ability to predict market trends.", options: ["uncanny", "ordinary", "mundane", "obvious"], answer: "uncanny" },
+    { question: "The CEO was known for his _____ behavior during meetings.", options: ["erratic", "placid", "complacent", "docile"], answer: "erratic" },
+    { question: "Their relationship began to _____ after the argument.", options: ["deteriorate", "ameliorate", "rejuvenate", "consolidate"], answer: "deteriorate" },
+    { question: "The evidence presented was practically _____.", options: ["irrefutable", "doubtful", "questionable", "ambiguous"], answer: "irrefutable" },
+    { question: "It's important to _____ between fact and opinion.", options: ["differentiate", "assimilate", "correlate", "integrate"], answer: "differentiate" },
+    { question: "His constant complaining was a major _____ to the team's morale.", options: ["hindrance", "catalyst", "boon", "impetus"], answer: "hindrance" },
+    { question: "The author's latest novel is truly a _____ of modern literature.", options: ["masterpiece", "debacle", "fiasco", "triviality"], answer: "masterpiece" },
+    { question: "She tried to _____ the tension by telling a joke.", options: ["defuse", "ignite", "provoke", "instigate"], answer: "defuse" },
+    { question: "The company's profits have been _____ dropping.", options: ["precipitously", "gradually", "marginally", "slightly"], answer: "precipitously" },
+    { question: "His apology seemed somewhat _____ given his previous actions.", options: ["disingenuous", "sincere", "heartfelt", "genuine"], answer: "disingenuous" },
+    { question: "The meeting ended in a complete _____, with no resolution.", options: ["stalemate", "consensus", "agreement", "harmony"], answer: "stalemate" },
+    { question: "Her performance was _____, leaving everyone speechless.", options: ["flawless", "mediocre", "passable", "abysmal"], answer: "flawless" },
+    { question: "The politician's speech was full of empty _____.", options: ["rhetoric", "substance", "facts", "logic"], answer: "rhetoric" },
+    { question: "He is known for his _____ approach to problem-solving.", options: ["pragmatic", "idealistic", "theoretical", "impractical"], answer: "pragmatic" },
+    { question: "The storm caused _____ damage to the coastal town.", options: ["catastrophic", "negligible", "minor", "insignificant"], answer: "catastrophic" },
+    { question: "I'm afraid I cannot _____ such unacceptable behavior.", options: ["condone", "condemn", "censure", "criticize"], answer: "condone" },
+    { question: "The new software is incredibly _____ and difficult to use.", options: ["cumbersome", "intuitive", "user-friendly", "streamlined"], answer: "cumbersome" }
 ];
-
-// Generate Past Tense Questions (50 questions)
-subjects.forEach(subj => {
-    verbSets.forEach(v => {
-        questionBank.push({
-            question: `Yesterday, ${subj.toLowerCase()} _____ to the city center early in the morning.`,
-            options: [v.base, v.s, v.past, v.pp],
-            answer: v.past
-        });
-    });
-});
-
-// Generate Present Perfect Questions (50 questions)
-subjects.forEach(subj => {
-    verbSets.forEach(v => {
-        const aux = (subj === "He" || subj === "She" || subj === "The professor" || subj === "My best friend" || subj === "The software engineer" || subj === "A student") ? "has" : "have";
-        questionBank.push({
-            question: `${subj} ${aux} never _____ such a beautifully designed system before.`,
-            options: [v.base, v.s, v.past, v.pp],
-            answer: v.pp
-        });
-    });
-});
-
-// Generate Preposition & Context Questions (40 questions)
-const contexts = [
-    { text: "We have a critical meeting scheduled", preps: ["in", "on", "at", "for"], time: "Monday", ans: "on" },
-    { text: "She usually arrives precisely", preps: ["in", "on", "at", "by"], time: "8:00 AM", ans: "at" },
-    { text: "They have been studying diligently", preps: ["for", "since", "during", "in"], time: "three hours", ans: "for" },
-    { text: "The company was originally founded", preps: ["in", "on", "at", "from"], time: "2010", ans: "in" }
-];
-
-contexts.forEach(c => {
-    for(let i=0; i<10; i++) {
-        questionBank.push({
-            question: `Grammar check: ${c.text} _____ ${c.time}.`,
-            options: c.preps,
-            answer: c.ans
-        });
-    }
-});
-
-// Generate Advanced C1/C2 Questions (50 questions)
-const advancedTemplates = [
-    { text: "Had the management _____ the crisis earlier, the company would have survived.", options: ["foresee", "foresaw", "foreseen", "foreseeing"], ans: "foreseen" },
-    { text: "It is imperative that the CEO _____ the meeting directly.", options: ["attends", "attend", "attended", "attending"], ans: "attend" },
-    { text: "No sooner _____ the room than the power went out completely.", options: ["I had entered", "did I enter", "had I entered", "have I entered"], ans: "had I entered" },
-    { text: "The new policy threatens to _____ an already volatile market.", options: ["mitigate", "exacerbate", "alleviate", "ameliorate"], ans: "exacerbate" },
-    { text: "If she _____ harder in her youth, she would be a director by now.", options: ["studies", "studied", "had studied", "has studied"], ans: "had studied" }
-];
-
-advancedTemplates.forEach(t => {
-    for(let i=0; i<10; i++) {
-        questionBank.push({
-            question: `Advanced: ${t.text}`,
-            options: t.options,
-            answer: t.ans
-        });
-    }
-});
-
-// Now we have 190 questions in the bank, spanning A1 to C2. 
-// When the assessment.js requests 10 random questions, it shuffles this array.
