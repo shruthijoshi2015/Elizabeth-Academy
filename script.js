@@ -14,19 +14,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileToggle = document.getElementById('mobile-toggle');
     const nav = document.querySelector('.main-nav');
     
-    mobileToggle.addEventListener('click', () => {
-        // Just as an example: toggle display property. 
-        // In a real scenario, you'd add a class and slide it in with CSS.
-        nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-        nav.style.flexDirection = 'column';
-        nav.style.position = 'absolute';
-        nav.style.top = '100%';
-        nav.style.left = '0';
-        nav.style.width = '100%';
-        nav.style.background = '#fff';
-        nav.style.padding = '2rem';
-        nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-    });
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', () => {
+            // Just as an example: toggle display property. 
+            // In a real scenario, you'd add a class and slide it in with CSS.
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            nav.style.flexDirection = 'column';
+            nav.style.position = 'absolute';
+            nav.style.top = '100%';
+            nav.style.left = '0';
+            nav.style.width = '100%';
+            nav.style.background = '#fff';
+            nav.style.padding = '2rem';
+            nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+        });
+    }
 
     // Reset styles on resize
     window.addEventListener('resize', () => {
@@ -72,11 +74,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 const formData = new FormData(demoForm);
                 const dataObj = {};
-                formData.forEach((value, key) => { dataObj[key] = value; });
+                
+                // Security 1: Honeypot Anti-Spam Check
+                if (formData.get('_honeypot')) {
+                    // It's a bot! Silently ignore and abort without hitting the API
+                    console.warn("Bot detected. Silently dumping request.");
+                    demoForm.reset();
+                    modal.classList.remove('active');
+                    return; 
+                }
+
+                formData.forEach((value, key) => { 
+                    if (key === '_honeypot') return;
+
+                    // Security 2: HTML Tag Stripper
+                    let sanitizedValue = value.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+                    // Security 3: Spreadsheet Formula Injection prevention
+                    if (/^[=\-+\@]/.test(sanitizedValue)) {
+                        sanitizedValue = "'" + sanitizedValue;
+                    }
+
+                    dataObj[key] = sanitizedValue; 
+                });
+
+                // Convert dataObj into URL Encoded format so Google Apps script reads it natively into e.parameter!
+                const encodedData = new URLSearchParams(dataObj).toString();
 
                 fetch('https://script.google.com/macros/s/AKfycbys7Kr3IpWDxY8-oDFbH9ZmJC8kD_CAMfyWkiebEPaLSzP3RT8EStwXt98lDlw8X2VN/exec', {
                     method: 'POST',
-                    body: JSON.stringify(dataObj)
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: encodedData
                 })
                 .then(() => {
                     alert('Thanks! Your demo request has been successfully scheduled.');
