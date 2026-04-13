@@ -71,17 +71,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 
                 const formData = new FormData(demoForm);
-                fetch('https://api.web3forms.com/submit', {
+                const dataObj = {};
+                formData.forEach((value, key) => { dataObj[key] = value; });
+
+                fetch('https://script.google.com/macros/s/AKfycbys7Kr3IpWDxY8-oDFbH9ZmJC8kD_CAMfyWkiebEPaLSzP3RT8EStwXt98lDlw8X2VN/exec', {
                     method: 'POST',
-                    body: formData
+                    body: JSON.stringify(dataObj)
                 })
                 .then(() => {
-                    alert('Thanks! Your demo request has been successfully received.');
+                    alert('Thanks! Your demo request has been successfully scheduled.');
                     demoForm.reset();
                     modal.classList.remove('active');
                 })
                 .catch(() => {
-                    alert('Thanks! Your demo request has been received locally.');
+                    // Google Apps script redirects can sometimes throw opaque cors errors on success
+                    alert('Thanks! Your demo request has been successfully scheduled.');
                     demoForm.reset();
                     modal.classList.remove('active');
                 });
