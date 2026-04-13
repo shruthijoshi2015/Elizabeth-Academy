@@ -73,6 +73,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 
                 const formData = new FormData(demoForm);
+
+                // --- Input Validation ---
+                const vName = formData.get('name').trim();
+                const vEmail = formData.get('email').trim();
+                const vPhone = formData.get('phone').replace(/\D/g, ''); // strip to digits only
+
+                if (!/^[a-zA-Z\s]{2,50}$/.test(vName)) {
+                    alert("Please enter a valid Full Name using only letters.");
+                    return;
+                }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(vEmail)) {
+                    alert("Please enter a valid email address.");
+                    return;
+                }
+                // Indian numbers generally have 10 core digits. They might include '91' or '0' prefix (11-12 digits max)
+                if (vPhone.length < 10 || vPhone.length > 12) {
+                    alert("Please enter a valid 10-digit Indian phone number.");
+                    return;
+                }
+                // ------------------------
+
                 const dataObj = {};
                 
                 // Security 1: Honeypot Anti-Spam Check
