@@ -175,6 +175,45 @@
         </div>
     </footer>
 
+    <!-- Book a Demo Modal -->
+    <div id="demo-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Book a Free Demo</h2>
+            <p>Fill out the form below and our academic counselors will contact you to schedule your free demo class.</p>
+            <!-- Form handled via Formspree/Web3Forms -->
+            <form action="https://api.web3forms.com/submit" method="POST" class="demo-form">
+                <!-- Replace 'YOUR_ACCESS_KEY_HERE' with your actual Web3Forms access key -->
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <input type="hidden" name="subject" value="New Demo Booking - Elizabeth International Academy">
+                <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+1 234 567 8900">
+                </div>
+                <div class="form-group">
+                    <label for="course">Interested Course</label>
+                    <select id="course" name="course" required>
+                        <option value="">Select a course...</option>
+                        <option value="Spoken English">Spoken English Mastery</option>
+                        <option value="IELTS">IELTS Preparation</option>
+                        <option value="PTE">PTE & OET Coaching</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

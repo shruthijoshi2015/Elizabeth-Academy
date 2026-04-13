@@ -41,4 +41,28 @@ document.addEventListener('DOMContentLoaded', () => {
             nav.style.display = 'none';
         }
     });
+
+    // Modal Logic
+    const modal = document.getElementById('demo-modal');
+    const demoButtons = document.querySelectorAll('a[href="#book-demo"]');
+    const closeModal = document.querySelector('.close-modal');
+
+    if (modal && closeModal) {
+        demoButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('active');
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    }
 });
