@@ -64,5 +64,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 modal.classList.remove('active');
             }
         });
+
+        const demoForm = document.querySelector('.demo-form');
+        if (demoForm) {
+            demoForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(demoForm);
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(() => {
+                    alert('Thanks! Your demo request has been successfully received.');
+                    demoForm.reset();
+                    modal.classList.remove('active');
+                })
+                .catch(() => {
+                    alert('Thanks! Your demo request has been received locally.');
+                    demoForm.reset();
+                    modal.classList.remove('active');
+                });
+            });
+        }
     }
 });

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Proficiency Assessment - Elizabeth International Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="main-header" class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html" style="display:flex; align-items:center; gap:10px;">
+                    <img src="assets/images/logo.jpeg" alt="Elizabeth International Academy Logo" class="brand-logo" onerror="this.style.display='none'">
+                    <h1>Elizabeth International Academy</h1>
+                </a>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-outline">&larr; Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="course-detail-hero" style="padding: 10rem 0 4rem;">
+        <div class="container">
+            <h1>English Level Assessment</h1>
+            <p style="font-size: 1.2rem; color: var(--color-gray); max-width: 700px; margin: 0 auto;">Take this 10-question adaptive quiz to discover your CEFR level and get a customized learning plan.</p>
+        </div>
+    </section>
+
+    <section class="course-content-section" style="background: var(--color-offwhite); min-height: 50vh;">
+        <div class="container">
+            <div id="quiz-container" class="content-card" style="max-width: 700px; margin: 0 auto;">
+                
+                <!-- Start Screen -->
+                <div id="start-screen" class="quiz-screen active">
+                    <h2 style="text-align:center;">Ready to find your level?</h2>
+                    <p style="text-align:center;">You will be asked 10 questions randomly selected from our comprehensive global database. It takes about 2 minutes.</p>
+                    <button id="start-btn" class="btn btn-primary btn-full" style="padding:1rem;">Start Assessment</button>
+                </div>
+
+                <!-- Quiz Screen -->
+                <div id="question-screen" class="quiz-screen" style="display: none;">
+                    <div class="progress-bar-container">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                    <p id="question-counter" style="text-align:right; font-size:0.9rem; color:var(--color-gray); margin-bottom:1rem;">Question 1 of 10</p>
+                    <h3 id="question-text" style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--color-navy);"></h3>
+                    
+                    <div id="options-container" class="options-grid">
+                        <!-- Options injected here -->
+                    </div>
+                </div>
+
+                <!-- Results Screen -->
+                <div id="result-screen" class="quiz-screen" style="display: none; text-align:center;">
+                    <h2 style="margin-bottom:0.5rem;">Assessment Complete!</h2>
+                    <p style="font-size: 1.2rem; margin-bottom:2rem;">Based on your responses, your estimated English Level is:</p>
+                    
+                    <div class="level-badge" id="level-badge">
+                        <h1 id="level-title" style="font-size: 4rem; color:var(--color-gold); margin:0;">B1</h1>
+                        <h3 id="level-name">Intermediate</h3>
+                    </div>
+
+                    <p id="level-description" style="margin: 2rem 0; color:#555;"></p>
+
+                    <div style="background:var(--color-offwhite); padding:2rem; border-radius:12px; margin-bottom:2rem; border:1px solid #ddd;">
+                        <h4>Recommended Action:</h4>
+                        <p id="recommendation-text" style="font-size:0.95rem; margin-top:0.5rem;">Join our intensive Spoken English Mastery course.</p>
+                    </div>
+
+                    <button id="book-demo-btn" class="btn btn-primary btn-large">Book a Free Demo Class</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book a Demo Modal (Reused) -->
+    <div id="demo-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Book a Free Demo</h2>
+            <form action="https://api.web3forms.com/submit" method="POST" class="demo-form">
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <div class="form-group"><input type="text" name="name" required placeholder="Full Name"></div>
+                <div class="form-group"><input type="email" name="email" required placeholder="Email Address"></div>
+                <div class="form-group"><input type="tel" name="phone" required placeholder="+91 98765 43210" pattern="[+0-9 ]+"></div>
+                <button type="submit" class="btn btn-primary btn-full">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="questions.js"></script>
+    <script src="assessment.js"></script>
+</body>
+</html>
